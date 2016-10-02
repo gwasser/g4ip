@@ -1,6 +1,6 @@
 name:                g4ip
 version:             0.1.0.0
-synopsis:            G4ip logic prover library
+synopsis:            G4ip-based automated propositional logic theorem prover library
 description:         Please see README.md
 homepage:            https://gitlab.com/gwasser/g4ip#readme
 license:             GPL-3

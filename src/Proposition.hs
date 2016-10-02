@@ -21,16 +21,19 @@ instance Show Prop where -- this defines how to show this type as a String
     show (Atom s) = s
     show TrueP = "⊤"
     show FalseP = "⊥"
-    show (And a b) = "(" ++ (show a) ++ " & " ++ (show b) ++ ")"
-    show (Or a b) = "(" ++ (show a) ++ " v " ++ (show b) ++ ")"
+    show (And a b) = "(" ++ (show a) ++ " ∧ " ++ (show b) ++ ")"
+    show (Or a b) = "(" ++ (show a) ++ " ∨ " ++ (show b) ++ ")"
     show (Implies a FalseP) = "¬" ++ "(" ++ (show a) ++ ")"
-    show (Implies a b) = "(" ++ (show a) ++ " ==> " ++ (show b) ++ ")"
+    show (Implies a b) = "(" ++ (show a) ++ " ⊃ " ++ (show b) ++ ")"
 
 -- define shorthand notation for propositional connectives:
 (==>) = Implies
+(⊃) = Implies -- Unicode
 (<==) = \a b -> Implies b a
 (&) = And
+(∧) = And -- Unicode 'LOGICAL AND'
 (\/) = Or -- can't use v as alphanumeric chars can't be operators in Haskell
+(∨) = Or -- Unicode 'LOGICAL OR'
 (<=>) = \a b -> And (Implies a b) (Implies b a)
 -- function to convert ~A into A => False
 --   in otherwords, not is just a shorthand and not a Prop on its own
@@ -42,8 +45,11 @@ n a = Implies a FalseP
 
 -- set precedence of operators
 infix 9 &
+infix 9 ∧
 infix 8 \/
+infix 8 ∨
 infixr 7 ==>
+infixr 7 ⊃
 infix 7 <==
 infix 6 <=>
 -- NOTE: function application is highest precedence so function n is always

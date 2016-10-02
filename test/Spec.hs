@@ -86,11 +86,9 @@ main :: IO ()
 main = do
     putStrLn "******* G4ip Tester Program *******"
     putStrLn "* written by : Garret Wassermann"
-    putStrLn "* for CMU 15-317 Constructive Logic"
-    putStrLn "* Homework 7, due 2015-10-29"
     putStrLn "***********************************"
     putStrLn "Running Tests..."
     let t = length test_cases
     n <- run_test test_cases 0
     putStrLn "-----------------------------"
-    putStrLn ("Results : " ++ (show n) ++ " out of " ++ (show t))
+    putStrLn ("Results : " ++ (show n) ++ " out of " ++ (show t) ++ " pass.")
